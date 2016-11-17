@@ -1,0 +1,2 @@
+# the .env file should be on your host, in the same directory as docker-compose.yml 
+.env
