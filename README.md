@@ -7,5 +7,7 @@
 ```
 $ cp env-example.txt .env
 ```
-$ docker-compose up -d
+
+```
+$ (source .env && docker-compose up -d)
 ```
