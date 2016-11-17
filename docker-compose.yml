@@ -6,7 +6,7 @@
 # Database user: root
 # Database password: my-database-password as specified in your .env file
 # Database name: pick any name
-# Database host: replace "localhost" with owncloud_db
+# Database host: replace "localhost" with the value of container_name of arify_db ("arify_db" in this case) 
 
 version: '2'
 
@@ -35,5 +35,7 @@ services:
   arify_db:
     image: mariadb
     container_name: arify_db
+    volumes: 
+      - "${DATABASE_CONFIG_DIRECTORY}:/var/lib"
     environment:
-      MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
