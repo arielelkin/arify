@@ -4,32 +4,36 @@
 #
 # During initial ownCloud setup, select "Storage & database" --> "Configure the database" --> "MySQL/MariaDB"
 # Database user: root
-# Database password: my-database-password
+# Database password: my-database-password as specified in your .env file
 # Database name: pick any name
-# Database host: replace "localhost" with owncloud_db 
+# Database host: replace "localhost" with owncloud_db
 
-ampache:
-  image: ampache/ampache
-  container_name: arify_ampache
-  links: 
-    - arify_owncloud
-  ports: 
-    - 6060:80
-  volumes:
-    - "/home/ariel/arify/data:/media:ro"
-  
-arify_owncloud:
-  image: owncloud:9
-  container_name: arify_owncloud
-  links:
-    - arify_db
-  ports:
-    - 7070:80
-  volumes:
-    - "/home/ariel/arify/data:/var/www/html/data"
+version: '2'
 
-arify_db:
-  image: mariadb
-  container_name: arify_db
-  environment:
-    MYSQL_ROOT_PASSWORD: letsenjoythisgreatmusic!!!
+services:
+
+  ampache:
+    image: ampache/ampache
+    container_name: arify_ampache
+    links: 
+      - arify_owncloud
+    ports: 
+      - ${AMPACHE_PORT}:80
+    volumes:
+      - "${OWNCLOUD_DATA_DIRECTORY}:/media:ro"
+
+  arify_owncloud:
+    image: owncloud:9
+    container_name: arify_owncloud
+    links:
+      - arify_db
+    ports:
+      - ${OWNCLOUD_PORT}:80
+    volumes:
+      - "${OWNCLOUD_DATA_DIRECTORY}:/var/www/html/data"
+
+  arify_db:
+    image: mariadb
+    container_name: arify_db
+    environment:
+      MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
