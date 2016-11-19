@@ -12,7 +12,6 @@ services:
       - ${AMPACHE_PORT}:80
     volumes:
       - "${OWNCLOUD_DATA_DIRECTORY}:/media:ro"
-      - "${AMPACHE_CONFIG_DIRECTORY}:/var/www/config"
 
 
   arify_owncloud:
@@ -26,6 +25,7 @@ services:
     volumes:
       - "${OWNCLOUD_DATA_DIRECTORY}:/var/www/html/data"
       - "${OWNCLOUD_CONFIG_DIRECTORY}:/var/www/html/config"
+
 
   arify_db:
     image: mariadb
