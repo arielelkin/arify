@@ -2,28 +2,26 @@
 
 ## Usage
 
-Create a file named .`env` by copying `.env_example`:
+### Setup Docker containers
 
-```
-$ cp .env_example .env
-```
+1. Create a file named .`env` by copying `.env_example`:
 
-Populate this new `.env` file with your own credentials. 
+    ```
+    $ cp .env_example .env
+    ```
 
-Make sure `.env` is in the same directory as `docker-compose.yml`.
+1. Populate this new `.env` file with your own credentials. Make sure `.env` is in the same directory as `docker-compose.yml`.
+1. Start up the Docker containers:
 
-Start up the docker containers:
-
-```
-$ (source .env && docker-compose up -d)
-```
-
+    ```
+    $ (source .env && docker-compose up -d)
+    ```
 
 ### Setup ownCloud
 
-During initial ownCloud setup:
-
-1. Select "Storage & database" --> "Configure the database" --> "MySQL/MariaDB"  
+Open your browser to domain.com:7070 (or to whatever value you've changed `OWNCLOUD_PORT` to in your `.env` file. Then follow these steps to setup your ownCloud installation:
+ 
+1.  Select _Storage & database_ --> _Configure the database_ --> _MySQL/MariaDB_  
 1. Database user: `root`
 1. Database password: put the value of `MYSQL_ROOT_PASSWORD` in your `.env` file
 1. Database name: pick any name
