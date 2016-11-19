@@ -25,6 +25,7 @@ services:
       - ${OWNCLOUD_PORT}:80
     volumes:
       - "${OWNCLOUD_DATA_DIRECTORY}:/var/www/html/data"
+      - "${OWNCLOUD_CONFIG_DIRECTORY}:/var/www/html/config"
 
   arify_db:
     image: mariadb
