@@ -2,11 +2,17 @@
 
 ## Usage
 
-1. On your host, copy env-example.txt to a file named .env 
+Create a file named .`env` by copying `.env_example`:
 
 ```
 $ cp .env_example .env
 ```
+
+Populate this new `.env` file with your own credentials. 
+
+Make sure `.env` is in the same directory as `docker-compose.yml`.
+
+Start up the docker containers:
 
 ```
 $ (source .env && docker-compose up -d)
