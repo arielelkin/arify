@@ -1,2 +1,4 @@
-# the .env file should be on your host, in the same directory as docker-compose.yml 
+# The .env file contains authentication credentials, so it should never 
+# be checked into source control. It's included in .gitignore so that
+# we don't accidentally check it in.
 .env
