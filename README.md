@@ -4,6 +4,7 @@
 
 ### Setup Docker containers
 
+1. Clone this repository. 
 1. Create a file named .`env` by copying `.env_example`:
 
     ```
